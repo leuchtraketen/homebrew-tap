@@ -4,27 +4,27 @@ require "shellwords"
 class LrOpencode < Formula
   desc "Precompiled OpenCode fork CLI"
   homepage "https://github.com/leuchtraketen/opencode"
-  version "0.0.385623085"
+  version "0.0.386651208"
   license "MIT"
   on_macos do
     on_arm do
-      url "https://github.com/leuchtraketen/opencode/releases/download/v0.0.0-fork.c32b520edfbf/lr-opencode-darwin-arm64.zip"
-      sha256 "92fe268fb4335a895a3144b4abef03619669e75cda8fc9c51b16c656c5c3dc60"
+      url "https://github.com/leuchtraketen/opencode/releases/download/v0.0.0-fork.917919f3b6a2/lr-opencode-darwin-arm64.zip"
+      sha256 "e13dbe3ef78f37fac49f8f7190cf64071ffcab17b5adf1d11f8cba65db0d0836"
     end
     on_intel do
-      url "https://github.com/leuchtraketen/opencode/releases/download/v0.0.0-fork.c32b520edfbf/lr-opencode-darwin-x64-baseline.zip"
-      sha256 "4570008af54aa8ce68b111ffd34a962c912ab8c07ac6dba00dad6fe6ecf755bd"
+      url "https://github.com/leuchtraketen/opencode/releases/download/v0.0.0-fork.917919f3b6a2/lr-opencode-darwin-x64-baseline.zip"
+      sha256 "16be164c75b63da33fbd7e25d67cfbc895a329b83f18c18c33a700b3a0898b00"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/leuchtraketen/opencode/releases/download/v0.0.0-fork.c32b520edfbf/lr-opencode-linux-arm64.tar.gz"
-      sha256 "63636ef840bcf4ebcf804a74ff1b2b37f29ab864af52abcff2367f13a750bc2f"
+      url "https://github.com/leuchtraketen/opencode/releases/download/v0.0.0-fork.917919f3b6a2/lr-opencode-linux-arm64.tar.gz"
+      sha256 "5d07bebed9b4ff603852674098f4e696df91c7f6ee1ca08023e0ab7f5ba8b4c8"
     end
     on_intel do
-      url "https://github.com/leuchtraketen/opencode/releases/download/v0.0.0-fork.c32b520edfbf/lr-opencode-linux-x64-baseline.tar.gz"
-      sha256 "4d61228116490220fc9c658ee756ff6273364290e6b9ec8f8e5f4d930a295adb"
+      url "https://github.com/leuchtraketen/opencode/releases/download/v0.0.0-fork.917919f3b6a2/lr-opencode-linux-x64-baseline.tar.gz"
+      sha256 "7b6e8acdea4817bcca229beaab9f48f9f1db3150b37d45ac1dabbc4acfe3865e"
     end
   end
 
@@ -65,8 +65,8 @@ class LrOpencode < Formula
 
   def caveats
     <<~EOS
-      Unsigned, not notarized. Binary version: 0.0.0-fork.c32b520edfbf.
-      Homebrew version 0.0.385623085 tracks the monotonically increasing release ID.
+      Unsigned, not notarized. Binary version: 0.0.0-fork.917919f3b6a2.
+      Homebrew version 0.0.386651208 tracks the monotonically increasing release ID.
       Uses the existing OpenCode config, auth, data and state paths.
       Update with: brew upgrade leuchtraketen/tap/lr-opencode
     EOS
@@ -79,7 +79,7 @@ class LrOpencode < Formula
     ENV["XDG_STATE_HOME"] = (testpath/"state").to_s
     ENV["XDG_CACHE_HOME"] = (testpath/"cache").to_s
     ENV["OPENCODE_DISABLE_MODELS_FETCH"] = "1"
-    assert_equal "0.0.0-fork.c32b520edfbf", shell_output("#{Shellwords.shellescape((bin/"lr-opencode").to_s)} --version").strip
+    assert_equal "0.0.0-fork.917919f3b6a2", shell_output("#{Shellwords.shellescape((bin/"lr-opencode").to_s)} --version").strip
     assert_match "brew upgrade leuchtraketen/tap/lr-opencode", shell_output("#{Shellwords.shellescape((bin/"lr-opencode").to_s)} --log-level INFO upgrade 2>&1", 1)
   end
 end
